@@ -16,16 +16,12 @@ class _LoginState extends State<Login> {
   String _email = "";
   String _password = "";
 
-  void _togglePassword() {
-    _showPassword = !_showPassword;
-  }
-
   void _performLogin() {
     print("email: $_email, password: $_password");
   }
 
   void _goToRegister() {
-    // TODO: Do the routing here
+    Navigator.pushNamed(context, "/register");
   }
 
   @override
@@ -97,7 +93,7 @@ class _LoginState extends State<Login> {
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
-                              _togglePassword();
+                              _showPassword = !_showPassword;
                             });
                           },
                           child: Icon(_showPassword
