@@ -20,10 +20,6 @@ class _LoginState extends State<Login> {
     print("email: $_email, password: $_password");
   }
 
-  void _goToRegister() {
-    Navigator.pushNamed(context, "/register");
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +53,9 @@ class _LoginState extends State<Login> {
                       children: [
                         const Text("Inicia sesión o"),
                         TextButton(
-                          onPressed: _goToRegister,
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/register");
+                          },
                           child: const Text(
                             "cree una cuenta",
                             style: TextStyle(
