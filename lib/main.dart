@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_and_drug_admin/pages/forgot_password.dart';
 import 'package:food_and_drug_admin/pages/login.dart';
 import 'package:food_and_drug_admin/pages/register.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const Login(),
         "/register": (context) => const RegisterPage(),
+        "/forgot-password": (context) => const ForgotPassword(),
       }
     );
   }
