@@ -75,7 +75,8 @@ class _LoginState extends State<Login> {
                         if (value!.isEmpty) {
                           return "Este campo es requerido";
                         }
-                        if (!value.contains(RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"))) {
+                        if (!value.contains(RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"))) {
                           return "Debe usar un correo válido";
                         }
                         return null;
@@ -112,12 +113,14 @@ class _LoginState extends State<Login> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, "/forgot-password");
+                          },
                           child: const Text("¿Olvidaste tu contraseña?"),
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            if(_formKey.currentState!.validate()) {
+                            if (_formKey.currentState!.validate()) {
                               _performLogin();
                             }
                           },
