@@ -33,6 +33,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 "Ingresa el correo electrónico asociado a la cuenta y te enviaremos un código de verificación",
                 style: TextStyle(fontSize: 16.0),
               ),
+              const SizedBox(height: 10.0),
               TextFormField(
                 onChanged: (value) {
                   _email = value;
@@ -48,14 +49,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   return null;
                 },
               ),
-              const SizedBox(height: 30.0),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
-                  fixedSize: const Size(double.infinity, 50),
+              const SizedBox(height: 35.0),
+              FractionallySizedBox(
+                widthFactor: 1,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                    fixedSize: const Size(0, 50),
+                  ),
+                  child: const Text("Enviar link"),
                 ),
-                child: const Text("Enviar link"),
               ),
             ],
           ),
