@@ -23,11 +23,11 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+      body: OrientationBuilder(builder: (context, orientation) {
+        return GridView.count(
+          primary: false,
+          crossAxisCount: orientation == Orientation.portrait ? 1 : 2,
           children: [
-            const Divider(height: 50.0),
             const FittedBox(
               fit: BoxFit.fill,
               child: Image(
@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(25, 20, 25, 0),
+              padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
               child: Form(
                 key: _formKey,
                 child: Column(
@@ -43,12 +43,11 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Bienvenido a $_appName",
+                      "Te damos la bienvenida a $_appName",
                       style: const TextStyle(
                           fontWeight: FontWeight.w700, fontSize: 20.0),
                     ),
 
-                    // Inicie sesión o cree una cuenta
                     Row(
                       children: [
                         const Text("Inicia sesión o"),
@@ -56,12 +55,7 @@ class _LoginState extends State<Login> {
                           onPressed: () {
                             Navigator.pushNamed(context, "/register");
                           },
-                          child: const Text(
-                            "cree una cuenta",
-                            style: TextStyle(
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
+                          child: const Text("cree una cuenta"),
                         )
                       ],
                     ),
@@ -132,14 +126,14 @@ class _LoginState extends State<Login> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 10.0),
+                    const SizedBox(height: 8.0),
                     Center(
                       child: Text(
                         "Inicie sesión con",
                         style: TextStyle(color: Colors.grey.shade600),
                       ),
                     ),
-                    const SizedBox(height: 15.0),
+                    const SizedBox(height: 8.0),
                     Container(
                       padding: const EdgeInsets.symmetric(
                           vertical: 0.0, horizontal: 90.0),
@@ -168,8 +162,8 @@ class _LoginState extends State<Login> {
               ),
             ),
           ],
-        ),
-      ),
+        );
+      }),
     );
   }
 }
