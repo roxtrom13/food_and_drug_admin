@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_and_drug_admin/pages/complete_profile.dart';
 import 'package:food_and_drug_admin/pages/forgot_password.dart';
 import 'package:food_and_drug_admin/pages/login.dart';
 import 'package:food_and_drug_admin/pages/register.dart';
@@ -19,11 +20,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
       ),
-      initialRoute: "/",
+      initialRoute: "/complete-profile",
       routes: {
         "/": (context) => const Login(),
         "/register": (context) => const RegisterPage(),
         "/forgot-password": (context) => const ForgotPassword(),
+        "/complete-profile": (context) => const CompleteProfile(),
       }
     );
   }
