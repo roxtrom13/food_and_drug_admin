@@ -47,7 +47,6 @@ class _LoginState extends State<Login> {
                       style: const TextStyle(
                           fontWeight: FontWeight.w700, fontSize: 20.0),
                     ),
-
                     Row(
                       children: [
                         const Text("Inicia sesión o"),
@@ -55,6 +54,10 @@ class _LoginState extends State<Login> {
                           onPressed: () {
                             Navigator.pushNamed(context, "/register");
                           },
+                          style: TextButton.styleFrom(
+                            padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
+                            textStyle: const TextStyle(decoration: TextDecoration.underline),
+                          ),
                           child: const Text("cree una cuenta"),
                         )
                       ],
@@ -76,7 +79,6 @@ class _LoginState extends State<Login> {
                         return null;
                       },
                     ),
-
                     TextFormField(
                       onChanged: (value) {
                         _password = value;
@@ -102,7 +104,6 @@ class _LoginState extends State<Login> {
                         return null;
                       },
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
