@@ -24,6 +24,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
   static const _selectCountryStringBase = "País";
   String _selectCountryString = "País";
 
+  void saveProfileData() {
+    print(
+        "First name: $_firstName, last name: $_lastName, birth: $_birthDate, country: $_country, gender: $_gender");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -231,7 +236,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         child: ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // save user data
+                              saveProfileData();
                             }
                           },
                           style: ElevatedButton.styleFrom(
