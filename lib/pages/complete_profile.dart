@@ -89,7 +89,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           onTap: () async {
                             final datePick = await showDatePicker(
                               context: context,
-                              initialDate: DateTime.now(),
+                              initialDate: DateTime.now().subtract(
+                                const Duration(days: 365 * 18),
+                              ),
                               firstDate: DateTime(1900),
                               lastDate: DateTime(2100),
                             );
