@@ -52,7 +52,7 @@ class _LoginState extends State<Login> {
                         const Text("Inicia sesión o"),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "/register");
+                            Navigator.pushNamed(context, "/auth/register");
                           },
                           style: TextButton.styleFrom(
                             padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
@@ -109,7 +109,7 @@ class _LoginState extends State<Login> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "/forgot-password");
+                            Navigator.pushNamed(context, "/auth/forgot-password");
                           },
                           child: const Text("¿Olvidaste tu contraseña?"),
                         ),
@@ -149,7 +149,9 @@ class _LoginState extends State<Login> {
                     ),
                     Center(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, "/");
+                        },
                         child: const Text(
                           "Continuar como invitado",
                           style: TextStyle(
