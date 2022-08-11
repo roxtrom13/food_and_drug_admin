@@ -17,8 +17,9 @@ class _RegisterPageState extends State<RegisterPage> {
   String _password1 = "";
   String _password2 = "";
 
-  void performRegister() {
+  void performRegister(ctx) {
     print("email: $_email, password1: $_password1, password2: $_password2");
+    Navigator.pushNamed(ctx, "/auth/complete-profile");
   }
 
   @override
