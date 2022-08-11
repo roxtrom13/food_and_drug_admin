@@ -139,7 +139,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            performRegister();
+                            performRegister(context);
                           }
                         },
                         style: ElevatedButton.styleFrom(
