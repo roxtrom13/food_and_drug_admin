@@ -32,13 +32,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
       ),
-      initialRoute: "/complete-profile",
+      initialRoute: "/login",
       routes: {
-        "/": (context) => const Login(),
-        "/register": (context) => const RegisterPage(),
-        "/forgot-password": (context) => const ForgotPassword(),
-        "/complete-profile": (context) => const CompleteProfile(),
-      }
+        "/": (context) => const HomePage(),
+        "/login": (context) => const Login(),
+        "/auth/register": (context) => const RegisterPage(),
+        "/auth/forgot-password": (context) => const ForgotPassword(),
+        "/auth/complete-profile": (context) => const CompleteProfile(),
+      },
     );
   }
 }
