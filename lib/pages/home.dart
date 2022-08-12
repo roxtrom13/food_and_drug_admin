@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         showSelectedLabels: true,
         showUnselectedLabels: false,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "ga"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Inicio"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Buscar"),
           BottomNavigationBarItem(
               icon: Icon(Icons.photo_camera), label: "Cámara"),
