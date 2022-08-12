@@ -68,27 +68,38 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            const Text("Buenos días ThuXikitoRoier+nah"),
-            const SizedBox(height: 30.0),
-            const ItemCard(
-              title: "Consultar por imagen",
-              description: "Consulta los ingredientes por imágenes",
-              icon: Icons.photo_camera,
+            const SizedBox(height: 10.0),
+            const Text(
+              "Buenos días, ThuXikitoRoier+nah",
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.w500,
+              ),
             ),
-            const ItemCard(
+            const SizedBox(height: 40.0),
+            ItemCard(
               title: "Buscar ingredientes",
               description: "Buscar los ingredientes por nombre",
               icon: Icons.search,
+              cardHandler: _customHandler,
             ),
-            const ItemCard(
+            ItemCard(
+              title: "Consultar por imagen",
+              description: "Consulta los ingredientes por imágenes",
+              icon: Icons.photo_camera,
+              cardHandler: _customHandler,
+            ),
+            ItemCard(
               title: "Resultados guardados",
               description: "Consulta ingredientes guardados",
               icon: Icons.list,
+              cardHandler: _customHandler,
             ),
-            const ItemCard(
-              title: "Historial de búsquedas",
+            ItemCard(
+              title: "Historial de búsqueda",
               description: "Consulta su historial",
               icon: Icons.calendar_month,
+              cardHandler: _customHandler,
             ),
           ],
         ),
