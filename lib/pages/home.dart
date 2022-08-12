@@ -48,7 +48,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: SafeArea(
         child: ListView(
-          shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
           children: [
             Container(
@@ -59,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                 children: const [
                   Icon(Icons.account_circle, size: 52.0),
                   Text(
-                    "Mi usuario",
+                    "FDA App",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20.0,
