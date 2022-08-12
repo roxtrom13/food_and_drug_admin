@@ -18,6 +18,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _customHandler(String cardName) {
+    if (kDebugMode) {
+      print("Hello from custom handler $cardName");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
