@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_and_drug_admin/pages/home_tab.dart';
-import 'package:food_and_drug_admin/pages/saved_results.dart';
+import 'package:food_and_drug_admin/pages/saved_results_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
