@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_and_drug_admin/pages/home_tab.dart';
 import 'package:food_and_drug_admin/pages/saved_results_tab.dart';
+import 'package:food_and_drug_admin/pages/user_info_tab.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _HomePageState extends State<HomePage> {
     HomeTab(),
     HomeTab(),
     SavedResultsTab(),
-    HomeTab(),
+    UserInfoTab(),
   ];
 
   void _onItemTapped(int index) {
