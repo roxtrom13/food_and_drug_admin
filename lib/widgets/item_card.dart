@@ -18,6 +18,7 @@ class ItemCard extends StatefulWidget {
   State<ItemCard> createState() => _ItemCardState();
 }
 
+// TODO: Return to stless widget due its not necesary to update overflow resizeing
 class _ItemCardState extends State<ItemCard> {
   @override
   Widget build(BuildContext context) {
