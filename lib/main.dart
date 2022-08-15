@@ -6,6 +6,7 @@ import 'package:food_and_drug_admin/pages/forgot_password.dart';
 import 'package:food_and_drug_admin/pages/login.dart';
 import 'package:food_and_drug_admin/pages/register.dart';
 import 'package:food_and_drug_admin/pages/home.dart';
+import 'package:food_and_drug_admin/pages/saved_results.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         "/auth/register": (context) => const RegisterPage(),
         "/auth/forgot-password": (context) => const ForgotPassword(),
         "/auth/complete-profile": (context) => const CompleteProfile(),
+        "/saved-results": (context) => const SavedResultsPage(),
       },
     );
   }
