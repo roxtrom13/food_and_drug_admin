@@ -49,7 +49,7 @@ class _HomeTabState extends State<HomeTab> {
         const SizedBox(height: 40.0),
         ItemCard(
           title: "Buscar ingredientes",
-          description: "Buscar los ingredientes por nombre",
+          description: "Buscar los ingredientes por nombre snaothe nstuhaonstehunaothenstuhaonet hnsaoth ntontehunto hentuh nsaotehuntaohensuth nsoteuhns tahoenstuhnaothnsutoehu",
           icon: Icons.search,
           cardHandler: _customHandler,
         ),
