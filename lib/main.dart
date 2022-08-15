@@ -6,7 +6,6 @@ import 'package:food_and_drug_admin/pages/forgot_password.dart';
 import 'package:food_and_drug_admin/pages/login.dart';
 import 'package:food_and_drug_admin/pages/register.dart';
 import 'package:food_and_drug_admin/pages/home.dart';
-import 'package:food_and_drug_admin/pages/saved_results.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,14 +32,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
       ),
-      initialRoute: "/login",
+      initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(),
         "/login": (context) => const Login(),
         "/auth/register": (context) => const RegisterPage(),
         "/auth/forgot-password": (context) => const ForgotPassword(),
         "/auth/complete-profile": (context) => const CompleteProfile(),
-        "/saved-results": (context) => const SavedResultsPage(),
       },
     );
   }
