@@ -9,3 +9,8 @@ enum Gender {
   male,
   other
 }
+
+enum PaymentCard {
+  visa,
+  mastercard,
+}
