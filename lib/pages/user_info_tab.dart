@@ -11,6 +11,7 @@ class _UserInfoTabState extends State<UserInfoTab> {
   final _labelStyle = const TextStyle(
     fontSize: 16.0,
     color: Colors.black87,
+    fontWeight: FontWeight.w500,
   );
 
   Container _userInfoContainer({required child}) {
@@ -18,10 +19,10 @@ class _UserInfoTabState extends State<UserInfoTab> {
       margin: const EdgeInsets.only(top: 8.0, bottom: 16.0),
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 12.0),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(4.0),
         border: Border.all(
-          width: 1.0,
-          color: Colors.black45,
+          width: 2.0,
+          color: Colors.grey.shade300,
         ),
       ),
       child: child,
@@ -62,12 +63,12 @@ class _UserInfoTabState extends State<UserInfoTab> {
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(vertical: 20.0),
+          padding: const EdgeInsets.only(top: 20.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              SizedBox(height: 52.0),
+              SizedBox(height: 42.0),
               Text(
                 "FDA App",
                 style: TextStyle(
@@ -111,9 +112,13 @@ class _UserInfoTabState extends State<UserInfoTab> {
           ),
         ),
         Text("Suscripciones", style: _labelStyle),
-        _userInfoContainer(child: const Text("Suscriptions content :)")),
+        _userInfoContainer(
+          child: const Text("Suscriptions content :)"),
+        ),
         Text("Tarjetas de pago", style: _labelStyle),
-        _userInfoContainer(child: const Text("List of payment cards :)")),
+        _userInfoContainer(
+          child: const Text("List of payment cards :)"),
+        ),
         FittedBox(
           fit: BoxFit.fitWidth,
           child: ElevatedButton(
