@@ -78,6 +78,26 @@ class _UserInfoTabState extends State<UserInfoTab> {
             ],
           ),
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Icon(Icons.account_circle, size: 56.0),
+            const Text("Nombre apellido :)"),
+            Container(
+              padding: const EdgeInsets.all(2.0),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(4.0),
+              ),
+              child: const Icon(
+                Icons.edit,
+                color: Colors.white,
+                size: 18.0,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 22.0),
         Text("Datos de contacto", style: _labelStyle),
         _userInfoContainer(
           child: Column(
