@@ -116,11 +116,36 @@ class _UserInfoTabState extends State<UserInfoTab> {
         ),
         Text("Suscripciones", style: _labelStyle),
         _userInfoContainer(
-          child: const Text("Suscriptions content :)"),
+          child: Wrap(
+            runSpacing: 10.0,
+            children: const [
+              SuscriptionCard(
+                name: "FDA APP monthly subs",
+                expiryDate: "01 enero 2022",
+                amount: 20.0,
+              ),
+              SuscriptionCard(
+                name: "FDA APP yearly subs",
+                expiryDate: "17 agosto 2022",
+                amount: 100.0,
+              ),
+            ],
+          ),
         ),
         Text("Tarjetas de pago", style: _labelStyle),
         _userInfoContainer(
-          child: const Text("List of payment cards :)"),
+          child: Wrap(runSpacing: 10.0, children: const [
+            CreditDebitCard(
+              cardType: PaymentCard.visa,
+              expiryDate: "10/26",
+              lastDigits: "123",
+            ),
+            CreditDebitCard(
+              cardType: PaymentCard.mastercard,
+              expiryDate: "02/24",
+              lastDigits: "986",
+            ),
+          ]),
         ),
         FittedBox(
           fit: BoxFit.fitWidth,
