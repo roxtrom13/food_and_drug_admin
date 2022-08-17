@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:food_and_drug_admin/assets/constants.dart';
+import 'package:food_and_drug_admin/widgets/credit_debit_card.dart';
+import 'package:food_and_drug_admin/widgets/suscription_card.dart';
 
 class UserInfoTab extends StatefulWidget {
   const UserInfoTab({Key? key}) : super(key: key);
@@ -135,10 +138,13 @@ class _UserInfoTabState extends State<UserInfoTab> {
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              primary: Colors.black,
+              primary: Colors.grey.shade200,
               fixedSize: const Size(240, 20),
             ),
-            child: const Text("Borrar cuenta"),
+            child: Text(
+              "Borrar cuenta",
+              style: TextStyle(color: Colors.red.shade800),
+            ),
           ),
         ),
       ],
