@@ -98,10 +98,15 @@ class _UserInfoTabState extends State<UserInfoTab> {
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(4.0),
               ),
-              child: const Icon(
-                Icons.edit,
-                color: Colors.white,
-                size: 18.0,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, "/auth/complete-profile");
+                },
+                child: const Icon(
+                  Icons.edit,
+                  color: Colors.white,
+                  size: 18.0,
+                ),
               ),
             ),
           ],
