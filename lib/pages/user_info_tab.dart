@@ -85,7 +85,12 @@ class _UserInfoTabState extends State<UserInfoTab> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(Icons.account_circle, size: 56.0),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, "/auth/complete-profile");
+              },
+              child: const Icon(Icons.account_circle, size: 56.0),
+            ),
             const Text("Nombre apellido :)"),
             Container(
               padding: const EdgeInsets.all(2.0),
