@@ -32,225 +32,247 @@ class _CompleteProfileState extends State<CompleteProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                const Text(
-                  "Completa tu perfil",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 20.0,
-                  ),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: const [
+              SizedBox(
+                height: 40,
+                width: 40,
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: 14,
+                  color: Colors.black,
                 ),
-                const SizedBox(height: 20.0),
-                const Icon(
-                  Icons.account_circle,
-                  size: 80.0,
-                ),
-                const SizedBox(height: 20.0),
-                const Text(
-                    "Sube una foto para poder identificarte más fácilmente"),
-                const SizedBox(height: 20.0),
-                Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        onChanged: (value) {
-                          _firstName = value;
-                        },
-                        decoration: const InputDecoration(
-                          hintText: "Ingresa tus nombres",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Este campo es requerido";
-                          }
-                          return null;
-                        },
+              ),
+            ],
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0,
+        title: const Text(
+          "Editar perfil",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 25.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Icon(
+                Icons.account_circle,
+                size: 70.0,
+              ),
+              const SizedBox(height: 20.0),
+              const Text(
+                  "Sube una foto para poder identificarte más fácilmente"),
+              const SizedBox(height: 20.0),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      onChanged: (value) {
+                        _firstName = value;
+                      },
+                      decoration: const InputDecoration(
+                        hintText: "Ingresa tus nombres",
                       ),
-                      const SizedBox(height: 15.0),
-                      TextFormField(
-                        onChanged: (value) {
-                          _lastName = value;
-                        },
-                        decoration: const InputDecoration(
-                          hintText: "Ingresa tus apellidos",
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "Este campo es requerido";
-                          }
-                          return null;
-                        },
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Este campo es requerido";
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 15.0),
+                    TextFormField(
+                      onChanged: (value) {
+                        _lastName = value;
+                      },
+                      decoration: const InputDecoration(
+                        hintText: "Ingresa tus apellidos",
                       ),
-                      const SizedBox(height: 15.0),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: GestureDetector(
-                          onTap: () async {
-                            final datePick = await showDatePicker(
-                              context: context,
-                              initialDate: DateTime.now().subtract(
-                                const Duration(days: 365 * 18),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "Este campo es requerido";
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 15.0),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12.0),
+                      child: GestureDetector(
+                        onTap: () async {
+                          final datePick = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now().subtract(
+                              const Duration(days: 365 * 18),
+                            ),
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime(2100),
+                          );
+                          if (datePick != null && datePick != _birthDate) {
+                            setState(() {
+                              _birthDate = datePick;
+                              _birthDayString =
+                                  "${_birthDate.day.toString().padLeft(2, '0')}/${_birthDate.month.toString().padLeft(2, '0')}/${_birthDate.year}";
+                            });
+                          }
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              _birthDayString,
+                              style: TextStyle(
+                                fontSize: 15.9,
+                                fontWeight: FontWeight.w400,
+                                color: _birthDayString == _birthDayStringBase
+                                    ? Colors.grey.shade700
+                                    : Colors.black,
                               ),
-                              firstDate: DateTime(1900),
-                              lastDate: DateTime(2100),
-                            );
-                            if (datePick != null && datePick != _birthDate) {
+                            ),
+                            const Icon(
+                              Icons.calendar_month,
+                              color: Colors.blue,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const Divider(
+                      height: 20,
+                      thickness: 1,
+                      endIndent: 0,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(height: 15.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 98,
+                          child: RadioListTile(
+                            visualDensity: VisualDensity.compact,
+                            title: const Text("Mujer"),
+                            contentPadding: const EdgeInsets.all(0),
+                            value: constants.Gender.female,
+                            groupValue: _gender,
+                            onChanged: (constants.Gender? value) {
                               setState(() {
-                                _birthDate = datePick;
-                                _birthDayString =
-                                    "${_birthDate.day.toString().padLeft(2, '0')}/${_birthDate.month.toString().padLeft(2, '0')}/${_birthDate.year}";
+                                _gender = value;
                               });
-                            }
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                _birthDayString,
-                                style: TextStyle(
-                                  fontSize: 15.9,
-                                  fontWeight: FontWeight.w400,
-                                  color: _birthDayString == _birthDayStringBase
-                                      ? Colors.grey.shade700
-                                      : Colors.black,
-                                ),
-                              ),
-                              const Icon(
-                                Icons.calendar_month,
-                                color: Colors.blue,
-                              ),
-                            ],
+                            },
                           ),
                         ),
-                      ),
-                      const Divider(
-                        height: 20,
-                        thickness: 1,
-                        endIndent: 0,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 15.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            width: 98,
-                            child: RadioListTile(
-                              visualDensity: VisualDensity.compact,
-                              title: const Text("Mujer"),
-                              contentPadding: const EdgeInsets.all(0),
-                              value: constants.Gender.female,
-                              groupValue: _gender,
-                              onChanged: (constants.Gender? value) {
-                                setState(() {
-                                  _gender = value;
-                                });
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 98,
-                            child: RadioListTile(
-                              visualDensity: VisualDensity.compact,
-                              contentPadding: const EdgeInsets.all(0),
-                              title: const Text("Varón"),
-                              value: constants.Gender.male,
-                              groupValue: _gender,
-                              onChanged: (constants.Gender? value) {
-                                setState(() {
-                                  _gender = value;
-                                });
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 98,
-                            child: RadioListTile(
-                              visualDensity: VisualDensity.compact,
-                              contentPadding: const EdgeInsets.all(0),
-                              title: const Text("Otro"),
-                              value: constants.Gender.other,
-                              groupValue: _gender,
-                              onChanged: (constants.Gender? value) {
-                                setState(() {
-                                  _gender = value;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 15.0),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12.0),
-                        child: GestureDetector(
-                          onTap: () {
-                            showCountryPicker(
-                              context: context,
-                              favorite: ['PE'],
-                              onSelect: (Country country) {
-                                setState(() {
-                                  _country = country.name;
-                                  _selectCountryString = country.name;
-                                });
-                              },
-                            );
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                _selectCountryString,
-                                style: TextStyle(
-                                  fontSize: 15.9,
-                                  fontWeight: FontWeight.w400,
-                                  color: _selectCountryString ==
-                                          _selectCountryStringBase
-                                      ? Colors.grey.shade700
-                                      : Colors.black,
-                                ),
-                              ),
-                              const Icon(
-                                Icons.search,
-                                color: Colors.blue,
-                              ),
-                            ],
+                        SizedBox(
+                          width: 98,
+                          child: RadioListTile(
+                            visualDensity: VisualDensity.compact,
+                            contentPadding: const EdgeInsets.all(0),
+                            title: const Text("Varón"),
+                            value: constants.Gender.male,
+                            groupValue: _gender,
+                            onChanged: (constants.Gender? value) {
+                              setState(() {
+                                _gender = value;
+                              });
+                            },
                           ),
                         ),
-                      ),
-                      const Divider(
-                        height: 20,
-                        thickness: 1,
-                        endIndent: 0,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(height: 20.0),
-                      FractionallySizedBox(
-                        widthFactor: 1,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              saveProfileData();
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.black,
-                            fixedSize: const Size(0, 50),
+                        SizedBox(
+                          width: 98,
+                          child: RadioListTile(
+                            visualDensity: VisualDensity.compact,
+                            contentPadding: const EdgeInsets.all(0),
+                            title: const Text("Otro"),
+                            value: constants.Gender.other,
+                            groupValue: _gender,
+                            onChanged: (constants.Gender? value) {
+                              setState(() {
+                                _gender = value;
+                              });
+                            },
                           ),
-                          child: const Text("Completar perfil"),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 15.0),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 12.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          showCountryPicker(
+                            context: context,
+                            favorite: ['PE'],
+                            onSelect: (Country country) {
+                              setState(() {
+                                _country = country.name;
+                                _selectCountryString = country.name;
+                              });
+                            },
+                          );
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              _selectCountryString,
+                              style: TextStyle(
+                                fontSize: 15.9,
+                                fontWeight: FontWeight.w400,
+                                color: _selectCountryString ==
+                                        _selectCountryStringBase
+                                    ? Colors.grey.shade700
+                                    : Colors.black,
+                              ),
+                            ),
+                            const Icon(
+                              Icons.search,
+                              color: Colors.blue,
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                    const Divider(
+                      height: 20,
+                      thickness: 1,
+                      endIndent: 0,
+                      color: Colors.grey,
+                    ),
+                    const SizedBox(height: 20.0),
+                    FractionallySizedBox(
+                      widthFactor: 1,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            saveProfileData();
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.black,
+                          fixedSize: const Size(0, 50),
+                        ),
+                        child: const Text("Completar perfil"),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
