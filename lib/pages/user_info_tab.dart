@@ -126,7 +126,7 @@ class _UserInfoTabState extends State<UserInfoTab> {
         ),
         Text("Suscripciones", style: _labelStyle),
         _userInfoContainer(
-          child: Wrap(
+          child: false ? const Text("No cuenta con ninguna suscripción") : Wrap(
             runSpacing: 10.0,
             children: const [
               SuscriptionCard(
