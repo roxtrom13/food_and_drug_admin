@@ -51,7 +51,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 width: 40,
                 child: Icon(
                   Icons.arrow_back_ios,
-                  size: 14,
+                  size: 18,
                   color: Colors.black,
                 ),
               ),
