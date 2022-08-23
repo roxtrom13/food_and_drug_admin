@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:country_picker/country_picker.dart';
 
@@ -25,8 +26,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
   String _selectCountryString = "País";
 
   void saveProfileData() {
-    print(
-        "First name: $_firstName, last name: $_lastName, birth: $_birthDate, country: $_country, gender: $_gender");
+    if (kDebugMode) {
+      print(
+        "First name: $_firstName, last name: $_lastName, birth: $_birthDate, country: $_country, gender: $_gender",
+      );
+    }
   }
 
   @override
@@ -56,10 +60,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
         ),
         centerTitle: true,
         elevation: 0,
-        title: const Text(
-          "Editar perfil",
-          style: TextStyle(
-            color: Colors.black,
+        title: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Text(
+            "Editar perfil",
+            style: TextStyle(
+              color: Colors.black,
+            ),
           ),
         ),
       ),
@@ -74,8 +83,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 size: 70.0,
               ),
               const SizedBox(height: 20.0),
-              const Text(
-                  "Sube una foto para poder identificarte más fácilmente"),
+              // const Text(
+              //     "Sube una foto para poder identificarte más fácilmente"),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text("Cambiar foto"),
+              ),
               const SizedBox(height: 20.0),
               Form(
                 key: _formKey,
