@@ -13,6 +13,48 @@ class SuscriptionCard extends StatelessWidget {
   final String expiryDate;
   final double amount;
 
+  //TODO: config a custom dialog for iOS devices
+  void _showCancelDialog(context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return SimpleDialog(
+          title: const Text(
+            "¿Seguro que desea cancelar su suscripción?",
+            textAlign: TextAlign.center,
+          ),
+          titlePadding: const EdgeInsets.fromLTRB(32.0, 80.0, 32.0, 0.0),
+          contentPadding: const EdgeInsets.fromLTRB(32.0, 32.0, 32.0, 80.0),
+          children: [
+            MaterialButton(
+              onPressed: () {
+                if (kDebugMode) {
+                  print("Do the cancel stuff");
+                }
+              },
+              color: Colors.purple.shade900,
+              child: const Text(
+                "Cancelar suscripción",
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+            const SizedBox(height: 16.0),
+            MaterialButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              color: Colors.grey.shade300,
+              child: const Text(
+                "Atrás",
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
