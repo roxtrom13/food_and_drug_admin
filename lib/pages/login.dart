@@ -56,7 +56,8 @@ class _LoginState extends State<Login> {
                           },
                           style: TextButton.styleFrom(
                             padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                            textStyle: const TextStyle(decoration: TextDecoration.underline),
+                            textStyle: const TextStyle(
+                                decoration: TextDecoration.underline),
                           ),
                           child: const Text("cree una cuenta"),
                         )
