@@ -40,7 +40,7 @@ class _HomeTabState extends State<HomeTab> {
         ),
         const SizedBox(height: 10.0),
         const Text(
-          "Buenos días, ThuXikitoRoier+nah",
+          "Buenos días, TheRoier :)",
           style: TextStyle(
             fontSize: 18.0,
             fontWeight: FontWeight.w500,
