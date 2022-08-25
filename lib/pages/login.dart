@@ -110,7 +110,8 @@ class _LoginState extends State<Login> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, "/auth/forgot-password");
+                            Navigator.pushNamed(
+                                context, "/auth/forgot-password");
                           },
                           child: const Text("¿Olvidaste tu contraseña?"),
                         ),
