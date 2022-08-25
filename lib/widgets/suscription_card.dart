@@ -21,7 +21,6 @@ class SuscriptionCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(4.0),
         color: Colors.grey.shade200,
       ),
-
       margin: const EdgeInsets.all(2.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +71,9 @@ class SuscriptionCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _showCancelDialog(context);
+                },
                 style: ElevatedButton.styleFrom(
                     primary: Colors.grey.shade400,
                     fixedSize: const Size(110.0, 10.0)),
