@@ -23,8 +23,8 @@ class SuscriptionCard extends StatelessWidget {
             "¿Seguro que desea cancelar su suscripción?",
             textAlign: TextAlign.center,
           ),
-          titlePadding: const EdgeInsets.fromLTRB(32.0, 80.0, 32.0, 0.0),
-          contentPadding: const EdgeInsets.fromLTRB(32.0, 32.0, 32.0, 80.0),
+          titlePadding: const EdgeInsets.fromLTRB(32.0, 64.0, 32.0, 0.0),
+          contentPadding: const EdgeInsets.fromLTRB(32.0, 32.0, 32.0, 64.0),
           children: [
             MaterialButton(
               onPressed: () {
