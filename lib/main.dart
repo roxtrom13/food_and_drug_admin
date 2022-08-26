@@ -7,6 +7,7 @@ import 'package:food_and_drug_admin/pages/list_ingredients.dart';
 import 'package:food_and_drug_admin/pages/login.dart';
 import 'package:food_and_drug_admin/pages/register.dart';
 import 'package:food_and_drug_admin/pages/home.dart';
+import 'package:food_and_drug_admin/pages/results_page.dart';
 import 'package:food_and_drug_admin/pages/update_profile.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
       ),
-      initialRoute: "/list-ingredients",
+      initialRoute: "/image-results",
       routes: {
         "/": (context) => const HomePage(),
         "/login": (context) => const Login(),
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         "/auth/complete-profile": (context) => const CompleteProfile(),
         "/update-profile": (context) => const UpdateProfilePage(),
         "/list-ingredients": (context) => const ListIngredientsPage(),
+        "/image-results": (context) => const ResultsPage(),
       },
     );
   }
