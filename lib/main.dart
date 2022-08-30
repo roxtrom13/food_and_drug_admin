@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_and_drug_admin/pages/complete_profile.dart';
 import 'package:food_and_drug_admin/pages/forgot_password.dart';
+import 'package:food_and_drug_admin/pages/ingredient_detail_page.dart';
 import 'package:food_and_drug_admin/pages/list_ingredients.dart';
 import 'package:food_and_drug_admin/pages/login.dart';
 import 'package:food_and_drug_admin/pages/register.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
       ),
-      initialRoute: "/image-results",
+      initialRoute: "/ingredient-details",
       routes: {
         "/": (context) => const HomePage(),
         "/login": (context) => const Login(),
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         "/update-profile": (context) => const UpdateProfilePage(),
         "/list-ingredients": (context) => const ListIngredientsPage(),
         "/image-results": (context) => const ResultsPage(),
+        "/ingredient-details": (context) => const IngredientDetailPage(),
       },
     );
   }
