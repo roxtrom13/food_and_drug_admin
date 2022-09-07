@@ -35,6 +35,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
+        textTheme: const TextTheme(
+        ),
       ),
       initialRoute: "/ingredient-details",
       routes: {
