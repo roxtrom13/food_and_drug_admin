@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:food_and_drug_admin/widgets/common/app_bar.dart';
 
-class IngredientDetailPage extends StatelessWidget {
+class IngredientDetailPage extends StatefulWidget {
   const IngredientDetailPage({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<IngredientDetailPage> createState() => _IngredientDetailPageState();
+}
+
+class _IngredientDetailPageState extends State<IngredientDetailPage> {
   Text _formatAlternativeNames(List<String> names) {
     var result = "";
     if (names.isEmpty) {
