@@ -18,8 +18,55 @@ class IngredientDetailPage extends StatelessWidget {
         result += " | ${names[i]}";
       }
     }
-    return Text(result);
+    return Text(
+      result,
+      style: TextStyle(color: Colors.teal.shade400),
+    );
   }
+
+  Text formatComsumptionDamage(double damage) {
+    var text = "Sin determinar nivel";
+    var textColor = Colors.grey.shade500;
+    if (0.0 <= damage && damage <= 0.2) {
+      text = "Muy bajo - nulo";
+      textColor = Colors.blue.shade300;
+    } else if (damage <= 0.4) {
+      text = "Bajo";
+      textColor = Colors.green.shade300;
+    } else if (damage <= 0.6) {
+      text = "Medio - moderado";
+      textColor = Colors.yellow.shade800;
+    } else if (damage <= 0.8) {
+      text = "Alto";
+      textColor = Colors.orange.shade700;
+    } else if (damage <= 1.0) {
+      text = "Muy alto";
+      textColor = Colors.red.shade600;
+    }
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: 15.0,
+        fontWeight: FontWeight.w600,
+        color: textColor,
+      ),
+    );
+  }
+
+  final items = [
+    "Hepatitis",
+    "Cáncer al páncreas",
+    "Diarrea",
+    "Dolor de cabeza",
+    "Hepatitis",
+    "Cáncer al páncreas",
+    "Diarrea",
+    "Dolor de cabeza",
+    "Hepatitis",
+    "Cáncer al páncreas",
+    "Diarrea",
+    "Dolor de cabeza",
+  ];
 
   @override
   Widget build(BuildContext context) {
