@@ -11,7 +11,9 @@ import 'package:food_and_drug_admin/pages/home.dart';
 import 'package:food_and_drug_admin/pages/results_page.dart';
 import 'package:food_and_drug_admin/pages/update_profile.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
@@ -35,8 +37,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         backgroundColor: const Color(0xfffb923c),
-        textTheme: const TextTheme(
-        ),
+        textTheme: const TextTheme(),
       ),
       initialRoute: "/",
       routes: {
