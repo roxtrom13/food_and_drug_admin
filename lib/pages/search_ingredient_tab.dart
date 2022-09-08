@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_and_drug_admin/widgets/ingredient_card.dart';
 
 class SearchIngredientsTab extends StatefulWidget {
   const SearchIngredientsTab({Key? key}) : super(key: key);
