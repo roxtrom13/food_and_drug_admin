@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_and_drug_admin/pages/home_tab.dart';
 import 'package:food_and_drug_admin/pages/saved_results_tab.dart';
+import 'package:food_and_drug_admin/pages/search_ingredient_tab.dart';
 import 'package:food_and_drug_admin/pages/user_info_tab.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
 
   static const List<Widget> _tabOptions = [
     HomeTab(),
-    HomeTab(),
+    SearchIngredientsTab(),
     HomeTab(),
     SavedResultsTab(),
     UserInfoTab(),
