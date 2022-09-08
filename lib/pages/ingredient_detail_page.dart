@@ -207,7 +207,7 @@ class _IngredientDetailPageState extends State<IngredientDetailPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text("Aprobado por la fda"),
-                    Text("Si"),
+                    Text("shield(Sí|No)"),
                   ],
                 ),
                 TextButton(
