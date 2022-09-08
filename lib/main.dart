@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
         ),
       ),
-      initialRoute: "/ingredient-details",
+      initialRoute: "/",
       routes: {
         "/": (context) => const HomePage(),
         "/login": (context) => const Login(),
