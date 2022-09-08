@@ -30,7 +30,7 @@ class _IngredientDetailPageState extends State<IngredientDetailPage> {
   }
 
   Text formatComsumptionDamage(double damage) {
-    var text = "Sin determinar nivel";
+    var text = "Nivel sin determinar";
     var textColor = Colors.grey.shade500;
     if (0.0 <= damage && damage <= 0.2) {
       text = "Muy bajo - nulo";
@@ -137,17 +137,17 @@ class _IngredientDetailPageState extends State<IngredientDetailPage> {
                   height: 10.0,
                 ),
                 const Text("A largo plazo puede causar"),
-                Scrollbar(
-                  child: Container(
-                    height: 100.0,
-                    padding: const EdgeInsets.all(8.0),
-                    margin: const EdgeInsets.symmetric(vertical: 6.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.grey,
-                        width: 2.0,
-                      ),
-                    ),
+                Container(
+                  height: 100.0,
+                  padding: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.symmetric(vertical: 6.0),
+                  // decoration: BoxDecoration(
+                  //   border: Border.all(
+                  //     color: Colors.grey,
+                  //     width: 2.0,
+                  //   ),
+                  // ),
+                  child: Scrollbar(
                     child: SingleChildScrollView(
                       child: Column(
                         children: items.map((str) {
@@ -186,7 +186,7 @@ class _IngredientDetailPageState extends State<IngredientDetailPage> {
                 const SizedBox(height: 14.0),
                 const Text(
                   "Nivel de daño al consumo",
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: TextStyle(fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(height: 4.0),
                 formatComsumptionDamage(0.5),
@@ -202,11 +202,14 @@ class _IngredientDetailPageState extends State<IngredientDetailPage> {
                     value: 0.6,
                   ),
                 ),
-                const SizedBox(height: 18.0),
+                const SizedBox(height: 22.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text("Aprobado por la fda"),
+                    Text(
+                      "¿Aprobado por la fda?",
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
                     Text("shield(Sí|No)"),
                   ],
                 ),
