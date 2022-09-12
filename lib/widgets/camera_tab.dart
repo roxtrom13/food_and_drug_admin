@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
 
 class CameraTab extends StatefulWidget {
   const CameraTab({Key? key}) : super(key: key);
