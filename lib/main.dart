@@ -11,9 +11,7 @@ import 'package:food_and_drug_admin/pages/home.dart';
 import 'package:food_and_drug_admin/pages/results_page.dart';
 import 'package:food_and_drug_admin/pages/update_profile.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
+main() {
   runApp(const MyApp());
 }
 
