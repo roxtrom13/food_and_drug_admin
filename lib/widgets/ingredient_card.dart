@@ -34,10 +34,18 @@ class _IngredientCardState extends State<IngredientCard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                widget.name,
-                style: const TextStyle(
-                  fontSize: 20.0,
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, "/ingredient-details");
+                },
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(0),
+                ),
+                child: Text(
+                  widget.name,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                  ),
                 ),
               ),
               const Icon(Icons.bookmark),
