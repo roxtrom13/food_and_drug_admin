@@ -67,7 +67,7 @@ class _IngredientCardState extends State<IngredientCard> {
                     ),
                     const SizedBox(height: 16.0),
                     const Text("Nivel de daño al consumo"),
-                    const SizedBox(height: 4.0),
+                    const SizedBox(height: 8.0),
                     Container(
                       decoration: BoxDecoration(
                         border: Border.all(),
