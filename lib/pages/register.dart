@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,7 +19,9 @@ class _RegisterPageState extends State<RegisterPage> {
   String _password2 = "";
 
   void performRegister(ctx) {
-    print("email: $_email, password1: $_password1, password2: $_password2");
+    if (kDebugMode) {
+      print("email: $_email, password1: $_password1, password2: $_password2");
+    }
     Navigator.pushNamed(ctx, "/auth/complete-profile");
   }
 

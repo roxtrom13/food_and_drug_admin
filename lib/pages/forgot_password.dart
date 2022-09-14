@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -13,7 +14,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   String _email = "";
 
   void sendRestoreEmail() {
-    print("$_email");
+    if (kDebugMode) {
+      print(_email);
+    }
   }
 
   @override
