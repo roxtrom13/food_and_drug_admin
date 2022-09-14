@@ -88,14 +88,6 @@ class _IngredientCardState extends State<IngredientCard> {
                         value: widget.damage,
                       ),
                     ),
-                    // TextButton(
-                    //   onPressed: () {},
-                    //   style: TextButton.styleFrom(
-                    //     padding: const EdgeInsets.all(0),
-                    //     fixedSize: const Size(80.0, 0),
-                    //   ),
-                    //   child: const Text("Ver detalles"),
-                    // )
                   ],
                 ),
               ],
