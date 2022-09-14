@@ -125,18 +125,47 @@ class _CameraTabState extends State<CameraTab> {
     if (mounted) setState(() {});
 
     _cameras = await availableCameras();
-    _cameraController = CameraController(_cameras[0], ResolutionPreset.medium);
+    _cameraController =
+        CameraController(_cameras[0], ResolutionPreset.high);
 
     await _cameraController.initialize();
 
     if (_cameraController.value.hasError) {
-      print("Has error :(");
       _widgetState = WidgetState.error;
       if (mounted) setState(() {});
     } else {
-      print("All good :)");
       _widgetState = WidgetState.loaded;
       if (mounted) setState(() {});
     }
+  }
+
+  Future<void> _sendImage(BuildContext context) async {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return Dialog(
+          backgroundColor: Colors.black,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                CircularProgressIndicator(),
+                SizedBox(height: 15.0),
+                Text(
+                  "Espere mientras procesamos su imagen",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+    // TODO: Async computation goes here :)
+    await Future.delayed(const Duration(seconds: 2));
   }
 }
