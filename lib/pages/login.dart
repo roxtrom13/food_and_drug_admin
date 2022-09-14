@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,7 +18,9 @@ class _LoginState extends State<Login> {
   String _password = "";
 
   void _performLogin() {
-    print("email: $_email, password: $_password");
+    if (kDebugMode) {
+      print("email: $_email, password: $_password");
+    }
   }
 
   @override
