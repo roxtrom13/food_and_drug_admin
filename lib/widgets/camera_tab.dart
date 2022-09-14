@@ -43,80 +43,104 @@ class _CameraTabState extends State<CameraTab> {
           ),
         );
       case WidgetState.loaded:
-        return Stack(
-          children: [
-            Positioned.fill(
-              child: CameraPreview(_cameraController),
-            ),
-            Positioned.fill(
-              child: Scaffold(
-                backgroundColor: Colors.transparent,
-                appBar: AppBar(backgroundColor: Colors.transparent),
-                body: Stack(
-                  children: [
-                    Positioned(
-                      bottom: 50,
-                      right: 20,
-                      left: 20,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 40.0,
-                            width: 40.0,
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(5),
+        return Center(
+          child: Stack(
+            children: [
+              CameraPreview(_cameraController),
+              Positioned.fill(
+                child: Scaffold(
+                  backgroundColor: Colors.transparent,
+                  body: Stack(
+                    children: [
+                      Positioned(
+                        bottom: 20,
+                        right: 20,
+                        left: 20,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 40.0,
+                              width: 40.0,
+                              decoration: BoxDecoration(
+                                color: Colors.grey,
+                                border: Border.all(
+                                  color: Colors.black,
+                                ),
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(5),
+                                ),
                               ),
                             ),
-                          ),
-                          IconButton(
-                            iconSize: 60.0,
-                            icon: const Icon(
-                              Icons.camera,
-                              color: Colors.white,
+                            IconButton(
+                              iconSize: 60.0,
+                              icon: const Icon(
+                                Icons.circle,
+                                color: Colors.white,
+                              ),
+                              onPressed: () async {
+                                try {
+                                  await _sendImage(context);
+                                  if (!mounted) return;
+                                  Navigator.of(context).pop();
+                                  Navigator.pushNamed(
+                                      context, "/image-results");
+                                } catch (e) {
+                                  Navigator.of(context).pop();
+                                  // TODO: Show some error
+                                }
+                              },
                             ),
-                            onPressed: () {},
-                          ),
-                          const SizedBox(
-                            width: 40,
-                          ),
-                        ],
+                            const SizedBox(
+                              width: 40,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       case WidgetState.error:
         return _buildScaffold(
           context,
-          const Center(
-            child: Text("La cámara no se pudo inicializar."),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(
+                  Icons.error,
+                  color: Colors.white,
+                  size: 40.0,
+                ),
+                Text(
+                  "La cámara no se pudo inicializar.",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                Text(
+                  "Verifique los permisos y reinicie la aplicación.",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
           ),
         );
     }
   }
 
   Widget _buildScaffold(BuildContext context, Widget body) {
-    // return Container(
-    //   child: body,
-    // backgroundColor: Colors.black,
-    // body: body,
-    // floatingActionButton: FloatingActionButton(
-    //   onPressed: () {},
-    //   child: const Icon(Icons.camera),
-    // ),
-    // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-    // );
-    return body;
+    return Container(
+      color: Colors.black,
+      child: body,
+    );
   }
 
   Future<void> initializeCamera() async {
